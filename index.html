@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spletno gradivo z orodjem Remark</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-slide-content { background-size: contain; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+layout: true
+background-image: url(background.jpg)
+background-position: center
+background-repeat: no-repeat
+<br>
+<br>
+<br>
+
+---
+
+class: center, middle
+
+# Spletno gradivo z orodjem Remark
+
+???
+Nekaj opomb.
+
+---
+
+name: remark
+# Remark
+
+<br>
+
+Orodje Remark lahko uporabimo za prevedbo zapiskov (pripravljenih v Markdownu) v spletno predstavitev.
+
+Več o možnostih, ki jih orodje ponuja, lahko preberemo v [modelni predstavitvi](https://remarkjs.com/) ali na
+[projektni strani](https://github.com/gnab/remark) z [natančnejšo dokumentacijo](https://github.com/gnab/remark/wiki).
+
+---
+
+# Navodila
+
+<br>
+
+- Uporabite gradivo, ki ste ga pripravili s pomočjo Markdowna.
+--
+
+- Segmentirajte besedilo in ga smiselno razporedite na več strani.
+--
+
+- Vsebinsko dopolnite in zaključite gradivo.
+--
+
+- Objavite gradivo kot spletno stran.
+
+---
+
+# Namigi
+
+<br>
+
+- Pomagajte si z dokumentacijo za [remark](#remark).
+- Znotraj besedila v Markdownu lahko uporabljate `html` (<code>html</code>).
+- Gradivo lahko polepšate z uporabo `css` (na primer slikovno ozadje, spremembe barv naslovov, ...).
+- Poslužujete se lahko tudi jezika `javascript` in dodate $\LaTeX$ formule ali kak drug interkativen element.
+
+<center>
+  <button onclick="klik()">Bomo zmogli?</button> <label id="na-klik"></label>
+</center>
+
+???
+Bomo bomo.
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+    <script>
+      function klik() {
+        document.getElementById("na-klik").innerHTML = "Bomo ja!"
+      }
+    </script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+  </body>
+</html>
