@@ -35,7 +35,7 @@ class: center, middle
 # Arhimed in število pi
 
 ???
-Nekaj opomb.
+Opombe
 
 ---
 
@@ -61,25 +61,181 @@ je bila očrtati krogu pravilni večkotnik.
 Obseg kroga je potem kar približno enak obsegu pravilnega večkotnika. 
 Vsak pravilni $n$-kotnik lahko razdelimo na $n$ skladnih enakokrakih trikotnikov, 
 vsakega od teh pa na dva skladna pravokotna trikotnika.
+--
 
 <center><img src="slika1.png" alt="krogu očrtan šestkotnik" width="200"></center>
+
 ---
 
-# Namigi
+# Računanje približka za $\pi$
 
 <br>
 
-- Pomagajte si z dokumentacijo za [remark](#remark).
-- Znotraj besedila v Markdownu lahko uporabljate `html` (<code>html</code>).
-- Gradivo lahko polepšate z uporabo `css` (na primer slikovno ozadje, spremembe barv naslovov, ...).
-- Poslužujete se lahko tudi jezika `javascript` in dodate $\LaTeX$ formule ali kak drug interkativen element.
+Arhimed se je osredotočil na en sam pravokotni trikotnik in 
+izračunal razmerje med dvema katetama pravokotnega trikotnika. 
 
-<center>
-  <button onclick="klik()">Bomo zmogli?</button> <label id="na-klik"></label>
-</center>
+<br>
+
+<center><img src="slika2.png" alt="pravokotni trikotnik" width="300"></center>
+--
+
+Vemo, da je $\frac{b}{a} = \frac{2b}{2a} = \frac{\text{stranica}\ n\text{-kotnika}}{\text{premer kroga}}$
+
+---
+
+<br>
+
+Če enačbo s prejšnje strani pomnožimo s številom stranic ($n$) pravilnega večkotnika, dobimo:
+$$
+    \frac{nb}{a} = \frac{\text{obseg}\ n\text{-kotnika}}{\text{premer kroga}} \approx  \frac{\text{obseg kroga}}{\text{premer kroga}} = \pi
+$$
+
+<br>
+--
+
+- Arhimed je začel z očrtanim 6-kotnikom in pri tem dobil pravokotne trikotnike, ki so bili Grkom dobro poznani. 
+--
+
+- Tudi mi bomo začeli s pravilnim 6-kotnikom.
+
+---
+## Približek za $\pi$ z uporabo pravilnega 6-kotnika
+
+<br>
+
+V primeru, ko krogu očrtamo pravilni 6-kotnik, dobimo posebno lepe pravokotne trikotnike.
+--
+<center><img src="slika3.png" alt="pravokotni trikotnik" width="200"></center>
+--
+S tem dobimo dve posebno lepi razmerji med stranicami: 
+--
+
+- $\frac{a}{b} = \sqrt{3}$
+--
+
+- $\frac{c}{b} = 2$
 
 ???
-Bomo bomo.
+
+---
+
+Naletimo pa na naslednji problem: 
+### Kako izračunati število $\sqrt{3}$ ?
+
+<br>
+--
+
+- Vemo, da je to število med 1 in 2, saj velja: $1^2=1 < 3 < 4 = 2^2$.
+--
+
+- S pomočjo tabele v Excelu bomo izračunali približek za $\sqrt{3}$. 
+
+---
+### <span style="color:rgb(222, 34, 156)">1. NALOGA: Računanje približka $\sqrt{3}$</span>
+* Izberi *začetno vrednost* in *korak*, s katerim se bodo vrednosti povečevale
+    * *začetna vrednost naj bo 1*
+    * *korak naj bo 0.1*
+--
+* V prvem stolpcu naj bodo **vrednosti**, ki se začnejo z *začetno vrednostjo* in naraščajo za *korak*
+--
+
+* V drugem stolpcu pa naj bodo **kvadrati vrednosti** iz prvega stolpca ali **"PREVELIKO"**
+    * Uporabi funkcijo IF (`=IF(B7^2 < 3; B7^2;  "Preveliko")`)
+--
+
+<center><img src="slika4.png" alt="tabela1" width="300"></center>
+
+---
+### <span style="color:rgb(222, 34, 156)">1. NALOGA: Računanje približka $\sqrt{3}$</span>
+* Dodaj še 4 bloke dveh stolpcev (še 4-krat ponovi zgornji postopek), da dobiš približek za $\sqrt{3}$, izračunan do 5. decimalnega mesta 
+    * Za novo *začetno vrednost* vzameš najboljši približek iz prejšnjega bloka dveh stolpcev (to je zadnji približek, katerega kvadrat je bil manjši od 3)
+    * Za nov *korak* vzameš desetino prejšnjega *koraka*
+--
+
+<center><img src="slika5.png" alt="tabela2" width="500"></center>
+
+---
+### <span style="color:rgb(222, 34, 156)">2. NALOGA: Računanje približka $\pi$ z uporabo pravilnega 6-kotnika</span>
+* Poustvari tabelo (torej samo 1 vrstico), ki jo vidiš na spodnji sliki
+    * V prvem stolpcu naj bo številka iteracije (začni z 0)
+--
+    * V drugem stolpcu naj bo razmerje $\frac{a}{b}=\sqrt{3}$ 
+       * uporabi približek, ki si ga izračunal v 1. nalogi
+--
+    * V tretjem stolpcu naj bo razmerje $\frac{c}{b}=2$ 
+--
+    * V četrtem stolpcu naj bo število stranic $n$
+       * V tem primeru torej 6 
+--
+    * V petem stolpcu pa naj bo približek za $\pi$
+       * Izračunan po formuli od prej: $\pi \approx \frac{nb}{a} = \frac{n}{\frac{a}{b}}$ (`=E3/C3`)
+--
+
+<center><img src="slika6.png" alt="tabela3" width="500"></center>
+--
+
+Ta ocena ni zelo blizu $\pi$, zato bi za boljšo aproksimacijo 
+želeli pametno povečati število stranic pravilnega večkotnika, ki smo ga očrtali krogu.
+
+---
+## Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
+
+<br>
+
+Arhimed je razpolovil kot pravokotnega trikotnika, 
+ki je v središču pravilnega večkotnika in tako dobil nov pravokotni trikotnik. 
+Novi pravokotni trikotnik pripada novemu pravilnemu večkotniku, ki ima več stranic, 
+kot jih je imel prejšnji.
+--
+
+<center><img src="slika7.png" alt="razpolovljen kot" width="300"></center>
+--
+
+Koliko stranic bo imel na ta način dobljeni pravilni večkotnik?
+<button onclick="klik()">ODGOVOR</button> <label id="klik"></label>
+
+---
+## Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
+<br>
+Zanima nas še razmerje  $\frac{a}{b_2}$, 
+ki ga potrebujemo za izračun približka $\pi$.
+
+* Vemo: $\frac{c}{a}=\frac{b_1}{b_2}$
+--
+
+* Na levi strani prištejemo $\frac{a}{a}$, na desni pa $\frac{b_2}{b_2}$
+    - To pomeni, da na obeh straneh prištejemo 1
+--
+* Dobimo $\frac{c+a}{a}=\frac{b}{b_2}$
+--
+
+* Pomnožimo obe strani z $\frac{a}{b}$
+--
+
+* Dobimo: $\frac{a}{b_2}=\frac{c+a}{b}$
+--
+
+
+Torej novo razmerje, ki ga potrebujemo, dobimo iz prejšnjih dveh:
+$$\frac{a}{b_2}=\frac{a}{b}+\frac{c}{b}$$
+---
+### <span style="color:rgb(222, 34, 156)">3. NALOGA: Računanje približka $\pi$</span>
+* Uporabi tablo iz 2. naloge in dodaj nove iteracije, tako da v vsaki naslednji uporabiš pravilni večkotnik z 2-krat več stranicami (kot je prikazano spodaj na sliki)
+--
+
+    - Novo razmerje $\frac{a}{b}$ dobiš s pomočjo prejšnje vrstice
+        * $\frac{a}{b_2}=\frac{a}{b}+\frac{c}{b}$ (formula za celico C4: `=C3 + D3`)
+--
+    - Novo razmerje $\frac{c}{d}$ dobiš z uporabo Pitagorovega izreka
+        * $\frac{c_2}{b_2}=\sqrt{\frac{a^2}{b_2^2}+\frac{b_2^2}{b_2^2}}$
+        * $\frac{c_2}{b_2}=\sqrt{\frac{a^2}{b_2^2}+1}$ (formula za celico D4: `=SQRT(C4^2 + 1)`)
+--
+
+<center><img src="slika8.png" alt="razpolovljen kot" width="500"></center>
+--
+
+*  Razširi tabelo, da dobiš vsaj 16 iteracij.
+
 
 
     </textarea>
@@ -89,10 +245,10 @@ Bomo bomo.
       var slideshow = remark.create();
     </script>
     <script>
-      function klik() {
-        document.getElementById("na-klik").innerHTML = "Bomo ja!"
-      }
-    </script>
+        function klik() {
+          document.getElementById("klik").innerHTML = "2-krat toliko kot prejšnji."
+        }
+      </script>
     <script>
       MathJax = {
         tex: {
