@@ -14,10 +14,10 @@
     h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
-        color:rgb(14, 26, 64)
+        color: rgb(79, 99, 103)
     }
     .razdelek {
-        background-color: rgb(243, 243, 243);
+        background-color: rgba(79, 99, 103, 0.5);
         padding-top: 2px;
         padding-bottom: 5px;
         padding-left: 20px;
@@ -25,8 +25,11 @@
         border-radius: 25px;
         margin: 20px;
     }
+    .naloga{
+      color: rgb(254, 96, 85);
+    }
     .gumb{
-      background-color: rgb(243, 243, 243);
+      background-color: rgb(184, 216, 216);
       border-radius: 25px;
     }
     .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
@@ -37,20 +40,17 @@
     <textarea id="source">
 
 layout: true 
-background-color: rgb(189, 178, 255)
+background-color: rgb(238, 245, 219)
 ---
 
 class: center, middle
 
 # ARHIMED IN ŠTEVILO PI
 
-???
-Opombe
 
 ---
 
-name: uvod
-# Uvod
+## Uvod
 
 <br>
 
@@ -59,12 +59,14 @@ name: uvod
     Število $\pi$ je razmerje med obsegom kroga in njegovim premerom.
 </div>
 
+<br>
+
 **Arhimed** (287 – 212 pr. n. št.) je bil briljanten grški matematik, ki je zaslužen za prvi sofisticiran približek števila $\pi$. 
 Stare civilizacije so vedele, da je to število malo večje od 3, Grki pa so ugotovili, koliko večje je.
 
 ---
 
-# Kako izmeriti obseg kroga?
+## Kako izmeriti obseg kroga?
 
 <br>
 
@@ -82,7 +84,7 @@ vsakega od teh pa na dva skladna pravokotna trikotnika.
 
 ---
 
-# Računanje približka za $\pi$
+## Računanje približka za $\pi$
 
 <br>
 
@@ -97,6 +99,8 @@ izračunal razmerje med dvema katetama pravokotnega trikotnika.
 Vemo, da je $\frac{b}{a} = \frac{2b}{2a} = \frac{\text{stranica}\ n\text{-kotnika}}{\text{premer kroga}}$
 
 ---
+
+## Računanje približka za $\pi$
 
 <br>
 
@@ -116,6 +120,7 @@ $$
 - Tudi mi bomo začeli s pravilnim 6-kotnikom.
 
 ---
+
 ## Približek za $\pi$ z uporabo pravilnega 6-kotnika
 
 <br>
@@ -147,7 +152,7 @@ Naletimo pa na naslednji problem:
 - S pomočjo tabele v Excelu bomo izračunali približek za $\sqrt{3}$. 
 
 ---
-### <span style="color:rgb(14, 26, 64)">1. NALOGA: Računanje približka $\sqrt{3}$</span>
+### <span class="naloga">1. NALOGA: Računanje približka $\sqrt{3}$</span>
 * Izberi *začetno vrednost* in *korak*, s katerim se bodo vrednosti povečevale
     * *začetna vrednost naj bo 1*
     * *korak naj bo 0.1*
@@ -158,15 +163,16 @@ Naletimo pa na naslednji problem:
 <center><img src="slika4.png" alt="tabela1" width="300"></center>
 
 ---
-### <span style="color:rgb(14, 26, 64)">1. NALOGA: Računanje približka $\sqrt{3}$</span>
+### <span class="naloga">1. NALOGA: Računanje približka $\sqrt{3}$</span>
 * Dodaj še 4 bloke dveh stolpcev (še 4-krat ponovi zgornji postopek), da dobiš približek za $\sqrt{3}$, izračunan do 5. decimalnega mesta 
     * Za novo *začetno vrednost* vzameš najboljši približek iz prejšnjega bloka dveh stolpcev (to je zadnji približek, katerega kvadrat je bil manjši od 3)
     * Za nov *korak* vzameš desetino prejšnjega *koraka*
 
 <center><img src="slika5.png" alt="tabela2" width="500"></center>
 
+
 ---
-### <span style="color:rgb(14, 26, 64)">2. NALOGA: Računanje približka $\pi$ z uporabo pravilnega 6-kotnika</span>
+### <span class="naloga">2. NALOGA: Računanje približka $\pi$ z uporabo pravilnega 6-kotnika</span>
 * Poustvari tabelo (torej samo 1 vrstico), ki jo vidiš na spodnji sliki
     * V prvem stolpcu naj bo številka iteracije (začni z 0)
     * V drugem stolpcu naj bo razmerje $\frac{a}{b}=\sqrt{3}$ 
@@ -180,12 +186,11 @@ Naletimo pa na naslednji problem:
 <center><img src="slika6.png" alt="tabela3" width="500"></center>
 --
 
-
 Ta ocena ni zelo blizu $\pi$, zato bi za boljšo aproksimacijo 
 želeli pametno povečati število stranic pravilnega večkotnika, ki smo ga očrtali krogu.
 
 ---
-## Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
+### Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
 
 <br>
 
@@ -202,8 +207,10 @@ Koliko stranic bo imel na ta način dobljeni pravilni večkotnik?
 <button class="gumb" onclick="klik()">ODGOVOR</button> <label id="klik"></label>
 
 ---
-## Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
+### Iterativno iskanje pravilnih večkotnikov s čedalje več stranicami
+
 <br>
+
 Zanima nas še razmerje  $\frac{a}{b_2}$, 
 ki ga potrebujemo za izračun približka $\pi$.
 --
@@ -229,7 +236,7 @@ Torej novo razmerje, ki ga potrebujemo, dobimo iz prejšnjih dveh:
     $$\frac{a}{b_2}=\frac{a}{b}+\frac{c}{b}$$
 </div>
 ---
-### <span style="color:rgb(14, 26, 64)">3. NALOGA: Računanje približka $\pi$</span>
+### <span class="naloga">3. NALOGA: Računanje približka $\pi$</span>
 * Uporabi tablo iz 2. naloge in dodaj nove iteracije, tako da v vsaki naslednji uporabiš pravilni večkotnik z 2-krat več stranicami (kot je prikazano spodaj na sliki)
     - Novo razmerje $\frac{a}{b}$ dobiš s pomočjo prejšnje vrstice
         * $\frac{a}{b_2}=\frac{a}{b}+\frac{c}{b}$ (formula za celico C4: `=C3 + D3`)
@@ -240,7 +247,6 @@ Torej novo razmerje, ki ga potrebujemo, dobimo iz prejšnjih dveh:
 <center><img src="slika8.png" alt="razpolovljen kot" width="500"></center>
 
 *  Razširi tabelo, da dobiš vsaj 16 iteracij.
-
 
 
     </textarea>
